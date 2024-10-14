@@ -13,30 +13,27 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+namespace enrol_oneroster;
+use moodleform;
+
+require_once($CFG->libdir . '/formslib.php');
 
 /**
- * One Roster Enrolment Client.
+ * One Roster Enrollment Client.
  *
  * @package    enrol_oneroster
- * @copyright  Andrew Nicols <andrew@nicols.co.uk>
+ * @copyright  Gustavo Amorim De Almeida, Ruben Cooper, Josh Bateson, Brayden Porter
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+class oneroster_csv_form extends moodleform {
+    protected function definition() {
+        $mform = $this->_form;
 
-namespace enrol_oneroster\tests\fixtures\local;
+        // file picker for CSV file upload
+        $mform->addElement('filepicker', 'uploadedzip', 'Upload Zip File', null, array('accepted_types' => '.zip'));
+        $mform->addRule('uploadedzip', null, 'required', null, 'client');
 
-use enrol_oneroster\local\interfaces\client as client_interface;
-use enrol_oneroster\local\interfaces\rostering_client as rostering_client_interface;
-use enrol_oneroster\local\oneroster_client as root_oneroster_client;
-use enrol_oneroster\local\oneroster_csv_client as csv_oneroster_client;
-
-/**
- * One Roster v1p1 client utilising OAuth 2.0.
- *
- * @package    enrol_oneroster
- * @copyright  Andrew Nicols <andrew@nicols.co.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-abstract class oneroster_client implements client_interface, rostering_client_interface {
-    use root_oneroster_client;
-    use csv_oneroster_client;
+        // buttons
+        $this->add_action_buttons(true, 'Upload');
+    }
 }

@@ -75,3 +75,17 @@ This is also used to fetch the list of available schools that should be synchron
 $string['settings_testconnection_link'] = 'Test connection';
 $string['test_oneroster_connection'] = 'Test One Roster Connection';
 $string['fullsync'] = 'Full sync of One Roster';
+$string['csv_upload'] = 'CSV Upload';
+$string['csv_upload_process'] = 'Process CSV Upload';
+$string['options'] = 'You can import OneRoster information by either uploading a zip file containing OneRoster spec CSV files or by connecting a REST API server.';
+$string['selectorganization'] = 'Select organization';
+$string['missingfiles'] = 'The following required files are missing: ';
+$string['invalidheaders'] = 'The following files have invalid or missing headers: ';
+$string['invalid_manifest_selection']= ' is not needed. Update its value to "absent" in the manifest file';
+$string['missing_csv_files']= 'The manifest.csv file is missing.';
+$string['failed_to_open_zip_file'] = 'Failed to open the ZIP file.';
+$string['failed_upload_zip_file'] = 'Failed to move the uploaded ZIP file.';
+$string['successful_upload'] = 'CSV processing completed.';
+$string['invalid_form'] = 'Invalid form submission.';
+$string['reference_message'] = 'For more details, please refer to the specification: ';
+$string['csv_spec'] = 'OneRoster CSV Table Specifications';

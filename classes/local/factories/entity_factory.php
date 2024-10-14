@@ -189,7 +189,6 @@ class entity_factory extends abstract_factory implements entity_factory_interfac
      */
     public function fetch_school_by_id(string $id): ?school_entity {
         $data = $this->fetch_from_cache('org', $id);
-
         if (!$data) {
             $data = school_entity::fetch_data(
                 $this->container,
@@ -383,7 +382,7 @@ class entity_factory extends abstract_factory implements entity_factory_interfac
      * @param   stdClass $data
      * @return  user_entity
      */
-    public function get_user_from_result(stdClass $data): user_entity {
+    public function get_user_from_result(stdClass $data): user_entity { 
         $this->store_record_in_cache('user', $data->sourcedId, $data);
         return new user_entity($this->container, $data->sourcedId, $data);
     }
